@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmwrkwve2lryd"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_ujf6a"]
+
+[node name="Main" type="Node"]
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("job_name_label", "description_label")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ujf6a")
+job_name_label = NodePath("../JobName")
+description_label = NodePath("../Description")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_right = 45.0
+offset_bottom = 20.0
+item_count = 3
+popup/item_0/text = "Warrior"
+popup/item_0/id = 0
+popup/item_1/text = "Mage"
+popup/item_1/id = 1
+popup/item_2/text = "Thief"
+popup/item_2/id = 2
+
+[node name="JobName" type="Label" parent="."]
+offset_left = 197.0
+offset_top = 3.0
+offset_right = 237.0
+offset_bottom = 26.0
+
+[node name="Description" type="Label" parent="."]
+offset_left = 390.0
+offset_top = 3.0
+offset_right = 430.0
+offset_bottom = 26.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 247.0
+offset_top = 174.0
+offset_right = 287.0
+offset_bottom = 214.0
+
+[connection signal="item_selected" from="OptionButton" to="Control" method="_on_option_button_item_selected"]
